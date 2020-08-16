@@ -1,0 +1,298 @@
+{% extends "sinauBS/layout.html" %}
+{% block title %}Index{% endblock %}
+{% block main %}
+<div class="container-fluid">
+    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+        <div class="d-inline"><h3 class="text-dark mb-0 ">
+            <div id="greeting" class="d-inline" style="white-space: nowrap;"></div>, {{user.username}}
+        </h3></div>
+        
+        <div class="text-gray font-weight-bold noselect" style="font-size: 26px;"id="clockbox"></div>
+        <h3 class="text-dark mb-0"><a href="/table" style="text-decoration: none;">Saturday, August 15</a></h3>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xl-3 mb-4">
+            <a href="/timetable" class="list-group-item-action bg-white">
+            <div class="card shadow border-left-primary py-2 list-group-item-action" >
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col mr-2">
+                            <div class="text-uppercase text-primary font-weight-bold text-xs mb-1">
+                                <span>Next Class</span></div>
+                            <div class="text-dark font-weight-bold h5 mb-0"><span>08:45 AM</span></div>
+                        </div>
+                        <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></i></div>
+                    </div>
+                </div>
+            </div></a>
+        </div>
+        <div class="col-md-6 col-xl-3 mb-4">
+            <a href="/assignment" class="list-group-item-action bg-white">
+            <div class="card shadow border-left-success py-2 list-group-item-action">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col mr-2">
+                            <div class="text-uppercase text-success font-weight-bold text-xs mb-1">
+                                <span>Next Assignment</span></div>
+                            <div class="text-dark font-weight-bold h5 mb-0"><span>Math: G1 Pre-Calculus</span></div>
+                        </div>
+                        <div class="col-auto"><i class="fas fa-tasks fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div></a>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3 mb-4">
+            <a href="/courses" class="list-group-item-action bg-white">
+            <div class="card shadow border-left-info py-2 list-group-item-action">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col mr-2">
+                            <div class="text-uppercase text-info font-weight-bold text-xs mb-1">
+                                <span>courses fininshed</span></div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="text-dark font-weight-bold h5 mb-0 mr-3">
+                                        <span>1</span></div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-info" aria-valuenow="20" aria-valuemin="0"
+                                            aria-valuemax="100" style="width: 20%;">
+                                            <span class="sr-only">50%</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div></a>
+        </div>
+        <div class="col-md-6 col-xl-3 mb-4">
+            <a href="/chat/" target="popup" onclick="window.open('/chat','chat','width=600,height=400')" class="list-group-item-action bg-white">
+            <div class="card shadow border-left-warning py-2 list-group-item-action">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col mr-2">
+                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1">
+                                <span>New Messages</span></div>
+                            <div class="text-dark font-weight-bold h5 mb-0"><span>5</span></div>
+                        </div>
+                        <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
+                    </div>
+                </div>
+            </div></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="text-primary font-weight-bold m-0"><a href="/courses">Courses</a></h6>
+                </div>
+                <div class="card-body">
+                    <h4 class="small font-weight-bold">English Task<span class="float-right">20%</span>
+                    </h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-danger" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 20%;"><span class="sr-only">20%</span>
+                        </div>
+                    </div>
+                    <h4 class="small font-weight-bold">Trig Task II<span class="float-right">40%</span>
+                    </h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-warning" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 40%;"><span class="sr-only">40%</span>
+                        </div>
+                    </div>
+                    <h4 class="small font-weight-bold">Perspektif Project<span class="float-right">60%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-primary" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 60%;"><span class="sr-only">60%</span>
+                        </div>
+                    </div>
+                    <h4 class="small font-weight-bold">Law of Force<span class="float-right">80%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 80%;"><span class="sr-only">80%</span>
+                        </div>
+                    </div>
+                    <h4 class="small font-weight-bold">Math Project<span class="float-right">Complete!</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 100%;"><span class="sr-only">100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="text-primary font-weight-bold m-0">Todo List</h6>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col mr-2">
+                                <h6 class="mb-0"><strong>Buying Dry Ice</strong></h6><span class="text-xs">10:30
+                                    AM</span>
+                            </div>
+                            <div class="col-auto">
+                                <div class="custom-control custom-checkbox"><input class="custom-control-input"
+                                        type="checkbox" id="formCheck-1"><label class="custom-control-label"
+                                        for="formCheck-1"></label></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col mr-2">
+                                <h6 class="mb-0"><strong>Submitting Task</strong></h6><span class="text-xs">11:30
+                                    AM</span>
+                            </div>
+                            <div class="col-auto">
+                                <div class="custom-control custom-checkbox"><input class="custom-control-input"
+                                        type="checkbox" id="formCheck-2"><label class="custom-control-label"
+                                        for="formCheck-2"></label></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col mr-2">
+                                <h6 class="mb-0"><strong>Study</strong></h6><span class="text-xs">12:30
+                                    AM</span>
+                            </div>
+                            <div class="col-auto">
+                                <div class="custom-control custom-checkbox"><input class="custom-control-input"
+                                        type="checkbox" id="formCheck-3"><label class="custom-control-label"
+                                        for="formCheck-3"></label></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col mr-2">
+                                <h6 class="mb-0"><strong>Finishing Homework</strong></h6><span class="text-xs">12:30
+                                    AM</span>
+                            </div>
+                            <div class="col-auto">
+                                <div class="custom-control custom-checkbox"><input class="custom-control-input"
+                                        type="checkbox" id="formCheck-3"><label class="custom-control-label"
+                                        for="formCheck-4"></label></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col mr-2">
+                                <h6 class="mb-0"><strong>Working Out</strong></h6><span class="text-xs">12:30
+                                    AM</span>
+                            </div>
+                            <div class="col-auto">
+                                <div class="custom-control custom-checkbox"><input class="custom-control-input"
+                                        type="checkbox" id="formCheck-3"><label class="custom-control-label"
+                                        for="formCheck-5"></label></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row list-group list-group-flush">
+        <div class="card-deck">
+            <div class="card">
+                <a href="/qna" class="list-group-item-action bg-white">
+                <div class="card-body list-group-item list-group-item-action">
+                    <br>
+                    <i class="d-flex justify-content-center far fa-question-circle fa-4x"></i>
+                        <br>
+                        <h5 style="color: gray;" class="card-title d-flex justify-content-center "><strong>QnA</strong></h5>    
+                    <p class="card-text text-center noselect">Go ask friends and teachers about something you dont really know!</p><br></a>
+                </div></a>
+            </div>
+            <div class="card">
+                <a href="/notes" class="list-group-item-action bg-white">
+                <div class="card-body list-group-item list-group-item-action ">
+                    <br>
+                    <i class="d-flex justify-content-center fas fa-book-open fa-4x " ></i>
+                    <br>
+                    <h5 class="card-title d-flex justify-content-center text-secondary"><strong>Share Note</strong></h5>
+                    <p class="card-text text-center noselect">Go share your notes and study together.</p></a>
+                </div>
+            </div>
+            <div class="card">
+                <a href="/meet" class="list-group-item-action bg-white">
+                <div class="card-body list-group-item list-group-item-action">
+                    <br>
+                    <i class="d-flex justify-content-center fas fa-video fa-4x"></i>
+                    <br>
+                    <h5 class="card-title d-flex justify-content-center"><strong>Web Meet</strong></h5>
+                    <p class="card-text text-center noselect">You can make room to meet with others, but don't forget to join class!</p><br></a>
+                </div>
+            </div>
+            <div class="card">
+                <a href="/search" class="list-group-item-action bg-white">
+                <div class="card-body list-group-item list-group-item-action">
+                    <br>
+                        <i class="d-flex justify-content-center fas fa-search fa-4x"></i>
+                    <br>
+                    <h5 class="card-title d-flex justify-content-center"><strong>Ask Me Anything</strong></h5>
+                    <p class="card-text text-center noselect">Yes! AI will get the answer done for you, go try it!</p><br></a>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    </div>
+    <br> <br><br>
+</div>
+<style>
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+</style>
+<script>
+    var tday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var tmonth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        function GetClock() {
+            var d = new Date();
+            var nday = d.getDay(), nmonth = d.getMonth(), ndate = d.getDate();
+            var nhour = d.getHours(), nmin = d.getMinutes();
+            if (nmin <= 9) nmin = "0" + nmin
+            var clocktext = nhour + ":" + nmin + "";
+            document.getElementById('clockbox').innerHTML = clocktext;
+        }
+
+        GetClock();
+        setInterval(GetClock, 1000);
+        function jam() {
+            var d = new Date();
+            var j = d.getHours();
+            if (j >= 05, j <= 12) {
+                document.querySelector('#greeting').innerHTML = 'Good Morning';
+            }
+            else if (j > 12, j < 18) {
+                document.querySelector('#greeting').innerHTML = 'Good Afternoon';
+            }
+            else if (j >= 18, j <= 24) {
+                document.querySelector('#greeting').innerHTML = 'Good Evening';
+            }
+            else if (j >= 00, j < 05) {
+                document.querySelector('#greeting').innerHTML = 'Good Evening';
+            }
+        }
+        jam();
+</script>
+{% endblock %}

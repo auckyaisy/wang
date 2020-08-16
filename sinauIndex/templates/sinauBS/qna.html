@@ -1,0 +1,141 @@
+{% extends "sinauBS/layout.html" %}
+{% block title %}QnA{% endblock %}
+{% block main %}
+{% load static %}
+<div class="container-fluid">
+<div class="container-fluid">
+    <div class="card shadow mb-4 justify-content-center">
+        <div class="card-header py-3 d-flex justify-content-center"><br>
+            <div class="btn-toolbar justify-content-between" >
+                <div class="input-group" style="width: 100%;"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                    <div class="input-group-append"><button class="btn btn-light" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Sidebar -->
+<div class="d-flex">
+<div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light"><br><i
+                class="d-flex justify-content-center far fa-question-circle fa-4x"></i><br><span
+                class="card-title d-flex justify-content-center" id="qnalogo"><strong>QnA</strong></span>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Math</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Physics</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">English</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Biology</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Literature</a>
+        <a href="#" class="list-group-item list-group-item-action bg-primary"><span style="color: whitesmoke;">Ask Question</span></a>
+    </div>
+</div>
+<!-- /#sidebar-wrapper -->
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <div class="row align-items-center no-gutters">
+            <div class="col mr-2">
+                <a href="/qna/1"><h6 class="mb-0"><strong>How To Solve This?</strong></h6></a><span class="text-xs">Math; Ron</span><span
+                    class="text-xs"></span>
+            </div>
+            <div class="col-auto">
+                <span><strong>Answered</strong></span>
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row align-items-center no-gutters">
+            <div class="col mr-2">
+                <a href="/qna/1"><h6 class="mb-0"><strong>How Fast Earth Spinning?</strong></h6></a><span class="text-xs">Physics; Not Aucky
+                    </span>
+            </div>
+            <div class="col-auto">
+                <span><strong>Answered</strong></span>
+            </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row align-items-center no-gutters">
+            <div class="col mr-2">
+                <a href="/qna/1"><h6 class="mb-0"><strong>Why This Question Exist?</strong></h6></a><span class="text-xs">All Around The World; Not Me
+                </span>
+            </div>
+            <div class="col-auto">
+                <span>Not Yet Answered</span>
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row align-items-center no-gutters">
+            <div class="col mr-2">
+                <a href="/qna/1"><h6 class="mb-0"><strong>How To Ask Question?</strong></h6></a><span class="text-xs">All Around The World; It's Me</span>
+            </div>
+            <div class="col-auto">
+                <span><strong>Answered</strong></span>
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row align-items-center no-gutters">
+            <div class="col mr-2">
+                <a href="/qna/1"><h6 class="mb-0"><strong>Is Mayonnaise Instument?</strong></h6></a><span class="text-xs">All; Patrick Star</span>
+            </div>
+            <div class="col-auto">
+                <span>Not Yet Answered</span>
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row align-items-center no-gutters">
+            <div class="col mr-2">
+                <a href="/qna/1">
+                    <h6 class="mb-0"><strong>How To Solve This?</strong></h6>
+                </a><span class="text-xs">Math; Ron</span><span class="text-xs"></span>
+            </div>
+            <div class="col-auto">
+                <span><strong>Answered</strong></span>
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row align-items-center no-gutters">
+            <div class="col mr-2">
+                <a href="/qna/1">
+                    <h6 class="mb-0"><strong>Why This Question Exist?</strong></h6>
+                </a><span class="text-xs">All Around The World; Not Me
+                </span>
+            </div>
+            <div class="col-auto">
+                <span>Not Yet Answered</span>
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row align-items-center no-gutters">
+            <div class="col mr-2">
+                <a href="/qna/1">
+                    <h6 class="mb-0"><strong>Why "Why This Question Exist?" Asked Twice?</strong></h6>
+                </a><span class="text-xs">All Around The World; Not Me
+                </span>
+            </div>
+            <div class="col-auto">
+                <span>Not Yet Answered</span>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>
+
+
+</div>
+<style>
+    #qnalogo {
+        font-size: 25px;
+    }
+    .btn-toolbar.justify-content-between {
+    width: 100%;
+    }
+    ul.list-group.list-group-flush {
+    width: 100%;
+    }
+</style>
+{% endblock %}

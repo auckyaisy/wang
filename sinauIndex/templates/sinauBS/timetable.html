@@ -1,0 +1,100 @@
+    {% extends "sinauBS/layout.html" %}
+{% block title %}Timetable{% endblock %}
+{% block main %}
+{% load static %}
+<div class="container-fluid">
+    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+        <h3 class="text-dark mb-0">Timetable</h3>
+    </div>
+        <div class="card shadow mb-4 justify-content-center">
+            <div class="card-header py-3 d-flex justify-content-center"><br>
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups" >
+                <div class="btn-group" role="group" aria-label="First group" style="margin-right: 50px;">
+                    <button type="button" class="btn btn-light">1</button>
+                    <button type="button" class="btn btn-secondary">2</button>
+                    <button type="button" class="btn btn-light">3</button>
+                    <button type="button" class="btn btn-light">4</button>
+                </div>       
+                <div class="input-group" >
+                    <div class="dropdown" style="margin-right: 50px;">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            August
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">July</a>
+                            <a class="dropdown-item" href="#">June</a>
+                            <a class="dropdown-item" href="#">May</a>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control text-center" placeholder="2020" aria-label="Input group example"
+                        aria-describedby="btnGroupAddon2" disabled>
+                </div>
+            </div>
+            </div>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col mr-2">
+                            <h6 class="mb-0"><strong>Math: G1 Pre-Calculus</strong></h6><span class="text-xs">07:00 AM</span><span class="text-xs"></span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="custom-control custom-checkbox"><input class="custom-control-input" type="checkbox"
+                                    id="formCheck-1" checked disabled><label class="custom-control-label" for="formCheck-1"></label></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col mr-2">
+                            <h6 class="mb-0"><strong>Math: G1 Pre-Calculus</strong></h6><span class="text-xs">08:30
+                                AM</span>
+                        </div>
+                        <div class="col-auto">
+                            <span style=" margin-right: 5px;">(Currently Started)</span> 
+                            <a href="/meet" style="margin-right: 5px;" data-toggle="tooltip" data-placement="top" title="Video Meeting"><i class="fas fa-video"></i></a>
+                            <a href="/assignment" style="margin-right: 7px;" data-toggle="tooltip" data-placement="top" title="Assignment"><i class="fas fa-tasks"></i></a>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col mr-2">
+                            <h6 class="mb-0"><strong>Math: G1 Pre-Calculus</strong></h6><span class="text-xs">12:30
+                                AM</span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="custom-control custom-checkbox"><input class="custom-control-input" type="checkbox"
+                                    id="formCheck-3" disabled><label class="custom-control-label" for="formCheck-3"></label></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col mr-2">
+                            <h6 class="mb-0"><strong>Math: G1 Pre-Calculus</strong></h6><span class="text-xs">12:30
+                                AM</span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="custom-control custom-checkbox"><input class="custom-control-input" type="checkbox"
+                                    id="formCheck-3" disabled><label class="custom-control-label" for="formCheck-4"></label></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col mr-2">
+                            <h6 class="mb-0"><strong>Math: G1 Pre-Calculus</strong></h6><span class="text-xs">12:30
+                                AM</span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="custom-control custom-checkbox"><input class="custom-control-input" type="checkbox"
+                                    id="formCheck-3" disabled><label class="custom-control-label" for="formCheck-5"></label></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

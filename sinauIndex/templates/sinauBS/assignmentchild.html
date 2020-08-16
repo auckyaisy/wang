@@ -1,0 +1,54 @@
+{% extends "sinauBS/layout.html" %}
+{% block title %}Assignment{% endblock %}
+{% block main %}
+{% load static %}
+<div class="container-fluid">
+<div class="card">
+    <div class="card-body d-flex justify-content-center">
+        <p class="card-text"><span style="font-size: 40px;"><b>Math: G1 Pre-Calculus 1</b></span><br>In mathematics education, precalculus is a course, or a set of courses, that includes algebra and trigonometry at a
+        level which is designed to prepare students for the study of calculus. Schools often distinguish between algebra and
+        trigonometry as two separate parts of the coursework. <br><br><b>Attachment: <a href="#">Math_Worksheet.pdf</a></b>
+        </p>
+    </div>
+</div>
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Material Section</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Attachment</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Quiz</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="row text-left no-gutters">
+                    <div class="col mr-2">
+                        <h6 class="mb-0"><a href="#"><strong>Math: G1 Pre-Calculus 1</strong></a></h6><span
+                            class="text-xs">Worksheet</span>
+                    </div>
+                    <br>
+                    <div class="col-auto">
+                        <button class="btn btn-light" onclick="">Attach</button>
+                        <button class="btn btn-light" onclick="">Submit</button>
+                    </div>
+                </div>
+            </li>
+            <br>
+            <h5 class="card-title">Search For The Topics</h5>
+            <div class="row d-flex justify-content-center flex-row">
+                <a href="#" class="btn btn-primary" style="margin-right: 5px;">Wolfram</a>
+                <a href="#" class="btn btn-primary" style="margin-right: 5px;">Y--tube</a>
+                <a href="#" class="btn btn-primary" style="margin-right: 5px;">K--- Academy</a>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+            </div>
+    </div>
+</div>
+{% endblock %}

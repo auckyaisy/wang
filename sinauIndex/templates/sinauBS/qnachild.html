@@ -1,0 +1,69 @@
+{% extends "sinauBS/layout.html" %}
+{% block title %}QnA{% endblock %}
+{% block main %}
+{% load static %}
+<div class="container-fluid">
+<div class="container-fluid">
+    
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-left"><br>
+            <span class=""><h1><strong>Is Mayonnaise Instrument?</strong></h1><span class="text">All; Patrick Star</span><span class="text-xs"></span>
+        </div>
+    <!-- Sidebar -->
+    <div class="d-flex">
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="list-group list-group-flush">
+                <a href="/qna" class="list-group-item list-group-item-action bg-light"><br><i class="d-flex justify-content-center far fa-question-circle fa-4x"></i><br><span class="card-title d-flex justify-content-center" id="qnalogo"><strong>QnA</strong></span>
+</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Math</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Physics</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">English</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Biology</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Literature</a>
+                <a href="#" class="list-group-item list-group-item-action bg-primary"><span style="color: whitesmoke;">Ask
+                        Question</span></a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <div class="col">
+        <div class="card-group">
+            <div class="answer">
+                <p class="card-text"><span style="font-size: 40px;"><b>Yes Patrick,</b></span><br>
+                    An instrument can be defined as a tool or implement. It is possible to use mayonnaise as a tool as it can be used to
+                bind loose items to bread in a sandwich, e.g. by spreading mayo on the bread first, Olive salad (or muffaletta) sticks
+                to the bread better making your sandwich less sloppy. So in the strictest sense you could call mayo an instrument, but
+                most English speakers would not use the word that way.
+                </p>
+                <br><br>
+            </div>
+        </div>
+                        <div class="form-group" id="answerform">
+                            <label for="exampleFormControlTextarea1"><strong>Not sure with the answer above?</strong> Know the right answer?</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Place your answer here!" rows="3"></textarea>
+                            <br>
+                            <button type="submit" class="btn btn-primary mb-2">Answer</button>
+                        </div>
+
+        </div>
+        
+
+    </div>
+       
+</div>
+</div>
+<style>
+    #qnalogo {
+        font-size: 25px;
+    }
+    #answerform {
+        margin-left: 25px;
+        margin-right: 25px;
+        margin-top: 50px;
+    }
+    .answer {
+        margin-left: 25px;
+        margin-right: 25px;
+        margin-top: 50px;
+    }
+</style>
+{% endblock %}
