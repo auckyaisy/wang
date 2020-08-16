@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    '4b3fed4449d8.ngrok.io'
+    '07f967fe3bcc.ngrok.io',
+    'sinauapp.xyz'
 ]   
 
 
@@ -56,8 +57,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'sinau.urls'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 TEMPLATES = [
     {
