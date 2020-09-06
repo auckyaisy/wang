@@ -1,0 +1,105 @@
+
+footer {
+  background-color:#c8d6e5;
+  font-family: 'Montserrat';
+}
+
+footer p {
+  font-style: oblique;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
+}
+
+.headcontain {
+  max-width: 1920px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+header {
+  height: 65px;
+  width: 100%;
+  position :fixed;
+  top: 0;
+  z-index: 10;
+  font-family: 'Montserrat', sans-serif;
+}
+
+img.logo {
+    line-height: 60px;
+  padding: 0 25px;
+  margin-top: 5px;
+  width: 20%;
+}
+
+.header-left {
+  float: left;
+}
+
+    .header-right {
+      display: none;
+          float: right;
+  margin-right: -25px;
+  overflow: visible;
+    }
+
+.header-right a {
+  line-height: 65px;
+  padding: 0 25px;
+  color: #22a1b7;
+  display: block;
+  float: left;
+  transition: all 0.5s;
+}
+
+.right {
+  display: block;
+  float: right;
+  margin-right: -25px;
+  overflow: visible;
+}
+
+.right a {
+  line-height: 65px;
+  padding: 0 25px;
+  color: #22a1b7;
+  display: block;
+  float: left;
+  transition: all 0.5s;
+}
+
+
+main, body {
+  margin-top: 30px;
+}
+
+a.login {
+  margin-right: 10px;
+}
+
+img.smala {
+      line-height: 60px;
+  margin-top: 8px;
+    width: 7%;
+}
+
+#dropdown {
+  line-height: 65px;
+    font-family: 'Montserrat', sans-serif;
+      line-height: 65px;
+  padding: 0 25px;
+  color: #22a1b7;
+  display: block;
+  float: left;
+  transition: all 0.5s;
+  
+}
+
+.menu-icon {
+  color: white;
+  float: right;
+  font-size: 25px;
+  padding: 21px 0;
+  display: none;
+}

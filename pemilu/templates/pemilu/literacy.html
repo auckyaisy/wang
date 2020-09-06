@@ -1,0 +1,492 @@
+{% load static %}
+<!-- made with heart @auckyaisy, 2020 -->
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="{% static "style.css" %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/loading.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="manifest" href="static/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="static/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#22a1b7">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#22a1b7">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <title>orava: {% block title %}{% endblock %}</title>
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar fixed-top ">
+            <a class="navbar-brand" href="/"><img style="margin-bottom: 5px" src="static/imgg/234.png"></a>
+            <div class="right">
+                <div class="dropdown" id="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{request.user.username}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="/logout">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- <nav class="navbar navbar-expand-md navbar-light bg-dark">
+        <a class="navbar-brand" href="/">pemilusmala</a>
+        <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbar" data-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+            {% if session.user_id %}
+            <ul class="navbar-nav ml-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+            </ul>
+            {% else %}
+            <ul class="navbar-nav ml-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+            </ul>
+            {% endif %}
+        </div>
+    </nav> -->
+
+    <main class="container p-5">
+        {% load static %}
+        <div class="wrap">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="container">
+                            <div class="card">
+                                <div class="imgBx">
+                                    <img src="{% static "imgg/dollar.png" %}" alt="">
+                                </div>
+                                <div class="contentBx">
+                                    <h2>Money Tips</h2>
+                                    <a href="/read" class="new">Read</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="container">
+                            <div class="card" id="dua">
+                                <div class="imgBx">
+                                    <img src="{% static "imgg/dream.png" %}" alt="">
+                                </div>
+                                <div class="contentBx">
+                                    <h2>Dream High</h2>
+                                    <a href="#" class="new">Read</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="container">
+                            <div class="card" id="tiga">
+                                <div class="imgBx">
+                                    <img src="{% static "imgg/vault.png" %}" alt="">
+                                </div>
+                                <div class="contentBx">
+                                    <h2>How to Save Money</h2>
+                                    <a href="#" class="new">Read</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="container">
+                            <div class="card" id="empat">
+                                <div class="imgBx">
+                                    <img src="{% static "imgg/magic.png" %}" alt="">
+                                </div>
+                                <div class="contentBx">
+                                    <h2>Invest for the Future</h2>
+                                    <a href="#" class="new">Read</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <style>
+            .wrap {
+    height: 500px;
+}
+            .p-5 {
+    padding: 0rem!important;
+}
+            #loader {
+                height: 9999px;
+                width: 9999px;
+                background-color: white;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+                transition: all .5s;
+            }
+        
+            #loader img {
+                position: absolute;
+                width: 2%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        
+            #logo {
+                width: 100%;
+                top: 70%;
+            }
+        
+            html,
+            body {
+                margin: 0;
+                height: 100%;
+                overflow: hidden
+            }
+        
+            body {
+                background-color: #f3745e;
+            }
+        
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;0,700;0,900;1,800&display=swap');
+        
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: 'Poppins', sans-serif;
+            }
+        
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: #e0ece4;
+            }
+        
+            .logo {
+                display: block;
+                position: fixed;
+                top: 4%;
+                left: 47%;
+            }
+        
+            .title {
+                display: block;
+                position: fixed;
+                top: 15%;
+                font-size: 30px;
+                color: white;
+            }
+        
+            .container {
+                position: relative;
+            }
+        
+            .container .card {
+                position: relative;
+                width: 320px;
+                height: 450px;
+                background: #fff;
+                border-radius: 20px;
+                overflow: hidden;
+            }
+        
+            .container .card:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #B22222;
+                clip-path: circle(150px at 80% 20%);
+                transition: 0.5s ease-in-out;
+            }
+        
+            .container .card:hover:before {
+                clip-path: circle(300px at 80% -20%);
+            }
+        
+            .container .card:after {
+                content: 'Satu';
+                position: absolute;
+                top: 30%;
+                left: -20%;
+                font-size: 12em;
+                font-weight: 800;
+                font-style: italic;
+                color: rgba(255, 255, 255, 0.04);
+            }
+        
+            .container .card:after {
+                content: 'Satu';
+                position: absolute;
+                top: 30%;
+                left: -20%;
+                font-size: 12em;
+                font-weight: 800;
+                font-style: italic;
+                color: rgba(255, 255, 255, 0.04);
+            }
+        
+            #dua:after {
+                content: 'Dua';
+            }
+        
+            #tiga:after {
+                content: 'Tiga';
+            }
+        
+            #empat:after {
+                content: 'Empat';
+            }
+        
+            .container .card .imgBx {
+                position: absolute;
+                top: 46%;
+                transform: translateY(-60%);
+                z-index: 10000;
+                width: 100%;
+                height: 220px;
+                transition: 0.5s;
+            }
+        
+            .container .card:hover .imgBx {
+                top: 0%;
+                transform: translateY(10%);
+            }
+        
+            .container .card .imgBx img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 240px;
+            }
+        
+            .container .card .contentBx {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 100px;
+                text-align: center;
+                transition: 1s;
+                z-index: 10;
+            }
+        
+            .container .card:hover .contentBx {
+                height: 185px;
+            }
+        
+            .container .card .contentBx h2 {
+                position: relative;
+                font-weight: 600;
+                letter-spacing: 1;
+                color: #B22222;
+                font-family: Montserrat;
+            }
+        
+            .container .card .contentBx .size,
+            .container .card .contentBx .color {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2px 0px;
+                transition: 0.5s;
+                opacity: 0;
+                visibility: hidden;
+            }
+        
+            .container .card:hover .contentBx .size {
+                opacity: 1;
+                visibility: visible;
+                transition-delay: 0.2s;
+            }
+        
+            .container .card:hover .contentBx .color {
+                opacity: 1;
+                visibility: visible;
+                transition-delay: 0.3s;
+            }
+        
+            .container .card .contentBx .size h3,
+            .container .card .contentBx .color h3 {
+                color: #fff;
+                font-size: 20px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-weight: 300;
+            }
+        
+            .container .card .contentBx .new {
+                display: inline-block;
+                padding: 10px 20px;
+                border-radius: 4px;
+                background: #fff;
+                margin-top: 8px;
+                text-decoration: none;
+                font-weight: bolder;
+                color: #6c757d;
+                font-size: xx-large;
+                opacity: 0;
+                font-family: Montserrat;
+                transform: translateY(50px);
+                transition: 0.5s;
+            }
+        
+            .container .card:hover .contentBx .new {
+                opacity: 1;
+                transform: translateY(0px);
+                transition-delay: 0.5s;
+            }
+        
+            .swiper-slide {
+                width: 300px;
+            }
+        
+            .swiper-wrapper {
+                align-items: center;
+            }
+        </style>
+        
+        <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+        <script>
+            var loader = document.getElementById("loader");
+
+            window.addEventListener("load", function () {
+                setTimeout(function () {
+                    loader.style.opacity = "0";
+                    loader.style.visibility = "hidden";
+                }, 1500);
+            })
+
+            var swiper = new Swiper('.swiper-container', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                coverflowEffect: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            });
+        </script>
+    </main>
+
+    <footer>
+        <nav class="navbar fixed-bottom navbar-light" style="background-color: #6c757d;">
+    <nav class="navi">
+        <a href="/home" class="navi__link">
+            <i class="material-icons navi__icon ">home</i>
+            <span class="navi__text">Home</span>
+        </a>
+        <a href="/portofolio" class="navi__link">
+            <i class="material-icons navi__icon">score</i>
+            <span class="navi__text">Porto</span>
+        </a>
+        <a href="/save" class="navi__link">
+            <i  class="material-icons navi__icon">account_balance_wallet</i>
+            <span class="navi__text">Save</span>
+        </a>
+    
+        <a href="" class="navi__link">
+            <i style="color:springgreen;" class="material-icons navi__icon">batch_prediction</i>
+            <span style="color:springgreen;"  class="navi__text">Learn</span>
+    
+        </a>
+    
+        <link href="http://siswa.edulab.co.id/assets-front/dash/lib/@fortawesome/fontawesome-free/css/all.min.css"
+            rel="stylesheet">
+        <link href="http://siswa.edulab.co.id/assets-front/dash/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </nav>
+    
+    
+    <style>
+        .material-icons {
+            color: white;
+            font-size: x-large;
+        }
+    
+        .navi {
+            bottom: 0;
+            width: 100%;
+            height: 55px;
+            display: flex;
+            overflow-x: auto;
+        }
+    
+        .navi__link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            min-width: 50px;
+            overflow: hidden;
+            white-space: nowrap;
+            font-family: sans-serif;
+            font-family: Montserrat;
+            font-size: 13px;
+            color: white;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+            transition: background-color 0.1s ease-in-out;
+        }
+    
+        .navi__link: hover {
+            background-color: #DEFAB2;
+        }
+    
+        .navi__link--active {
+            color: #009578;
+        }
+    </style>
+      </nav>
+    </footer>
+
+</body>
+
+</html>

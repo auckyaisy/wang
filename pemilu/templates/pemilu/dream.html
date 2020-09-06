@@ -1,0 +1,282 @@
+{% extends "pemilu/layout.html" %}
+
+{% block brand %}static/imgg/123.png{% endblock %}
+
+
+{% block title %}
+Halaman Muka
+{% endblock %}
+
+
+{% block main %}
+{% load static %}
+<div class="container-fluid">
+    <div class="card shadow mb-4 justify-content-center">
+        <div class="card-header py-3 d-flex justify-content-center" style="margin-left: 18px;">
+            <img src="{% static "imgg/dreams.png" %}" width="100px" height="100px" alt="">
+            <div class="col">
+                <div style="margin-top: 16px; margin-left: 5px;">
+                    <h3>Dream Saver</h3>
+                </div>
+            </div>
+        </div>
+
+        <ul class="list-group list-group-flush ">
+            <li class="list-group-item text-center">
+                <div class="col">
+                    <h3>30% of Income</h3>
+                    <p style="text-align: center">Allocated from the prospect</p>
+                </div>
+                <hr>
+                <div class="row align-items-center no-gutters" style="text-align: center; justify-content: center;">
+                    <p style="text-align: center;">
+                        Last Savings: <br>
+                        <strong>+$1500</strong>
+                    </p>
+                </div>
+            </li>
+                    <li class="list-group-item">
+            <div class="row align-items-center no-gutters">
+                <div class="col mr-2">
+                    <h6 class="mb-0"><strong>New Macbook</strong></h6><span class="text-xs">$199 | <strong>Target:
+                            $2000</strong> </span>
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-primary" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 10%;">
+                            <span class="sr-only">50%</span></div>
+                    </div>
+                </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row align-items-center no-gutters">
+                <div class="col mr-2">
+                    <h6 class="mb-0"><strong>New Phone</strong></h6><span class="text-xs">$500 | <strong>Target:
+                            $1000</strong> </span>
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-danger" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 50%;">
+                            <span class="sr-only">50%</span></div>
+                    </div>
+                </div>
+            </div>
+        </li>
+            <li class="list-group-item text-center">
+                <button class="btn-next" onclick="window.location.href='/';"><strong>Add Dream</strong></button>
+            </li>
+            <li class="list-group-item text-center">
+                <button class="btn-next" onclick="window.location.href='/';"><strong>Deposit</strong></button>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="gfg">
+
+</div>
+<div class="wrap">
+
+</div>
+
+
+<style>
+    h3 {
+        color: indigo;
+        font-weight: bold;
+    }
+
+    .pb-3,
+    .py-3 {
+        padding-bottom: 0.5rem !important;
+    }
+
+    ul.list-group.list-group-flush {
+        font-family: Montserrat;
+    }
+
+    .container-fluid {
+        overflow: scroll;
+        height: 600px;
+        width: 100%;
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    div.gfg {
+        overflow: auto;
+    }
+
+    .wrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-family: Montserrat;
+    }
+
+
+
+    #loader img {
+        position: absolute;
+        width: 2%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #logo {
+        width: 100%;
+        top: 70%;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    html,
+    body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden
+    }
+
+    body {
+        background-color: indigo;
+    }
+
+    .card-header.py-3.d-flex.justify-content-center {
+        font-family: Montserrat;
+    }
+
+    .btn-next {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: none;
+        padding: 15px 35px;
+        background-color: #fff;
+        color: #6c757d;
+        border-radius: 27px;
+        transition: 0.4s all;
+    }
+
+    .btn-next:hover {
+        cursor: pointer;
+        background-color: #fff;
+        color: #f3745e;
+        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<script>
+    var loader = document.getElementById("loader");
+
+    window.addEventListener("load", function () {
+        setTimeout(function () {
+            loader.style.opacity = "0";
+            loader.style.visibility = "hidden";
+        }, 1500);
+    })
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Savings', 'Percent'],
+            ['Everyday', 60],
+            ['Dream', 30],
+            ['Future', 10],
+        ]);
+
+        var options = {
+            pieHole: 0.4,
+            backgroundColor: { fill: 'transparent' },
+            legend: { position: 'none' },
+            pieSliceText: "none"
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+    }
+
+
+</script>
+{% endblock %}
+
+{% block bottom %}
+<nav class="navi">
+    <a href="/home" style="text-decoration: none;" class="navi__link">
+        <i class="material-icons navi__icon ">home</i>
+        <span class="navi__text">Home</span>
+    </a>
+    <a href="/portofolio" style="text-decoration: none;" class="navi__link">
+        <i class="material-icons navi__icon">score</i>
+        <span class="navi__text">Porto</span>
+    </a>
+    <a href="/save" style="text-decoration: none;" class="navi__link">
+        <i style="color:springgreen;" class="material-icons navi__icon">account_balance_wallet</i>
+        <span style="color:springgreen;" class="navi__text">Save</span>
+    </a>
+
+    <a href="" style="text-decoration: none;" class="navi__link">
+        <i class="material-icons navi__icon">batch_prediction</i>
+        <span class="navi__text">Learn</span>
+
+    </a>
+
+    <link href="http://siswa.edulab.co.id/assets-front/dash/lib/@fortawesome/fontawesome-free/css/all.min.css"
+        rel="stylesheet">
+    <link href="http://siswa.edulab.co.id/assets-front/dash/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</nav>
+
+
+<style>
+    .material-icons {
+        text-decoration: none;
+        color: white;
+        font-size: x-large;
+    }
+
+    .navi {
+        bottom: 0;
+        width: 100%;
+        height: 55px;
+        display: flex;
+        overflow-x: auto;
+        text-decoration: none;
+    }
+
+    .navi__link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        min-width: 50px;
+        overflow: hidden;
+        white-space: nowrap;
+        font-family: sans-serif;
+        font-family: Montserrat;
+        font-size: 13px;
+        color: white;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+        transition: background-color 0.1s ease-in-out;
+    }
+
+    .navi__link: hover {
+        background-color: #DEFAB2;
+    }
+
+    .navi__link--active {
+        color: #009578;
+    }
+</style>
+{% endblock %}

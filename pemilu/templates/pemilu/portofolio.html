@@ -1,0 +1,504 @@
+{% extends "pemilu/layout.html" %}
+
+{% block brand %}static/imgg/123.png{% endblock %}
+
+
+{% block title %}
+Halaman Muka
+{% endblock %}
+
+
+{% block main %}
+{% load static %}
+<div class="container-fluid">
+    <div class="card shadow mb-4 justify-content-center">
+        <div class="card-header py-3 d-flex justify-content-center">
+            <h3>My Prospect</h3>
+            <p style=" text-align: center; margin-top: 7px;">You're: <span
+                    style="font-size: 20px;"><strong>Orava</strong></span></p>
+        </div>
+    </div>
+    
+<ul class="list-group list-group-flush ">
+    <li class="list-group-item text-center">
+        <div class="input-group">
+            <div class="dropdown" style="margin-right: 50px;">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    August
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">July</a>
+                    <a class="dropdown-item" href="#">June</a>
+                    <a class="dropdown-item" href="#">May</a>
+                </div>
+            </div>
+            <input type="text" class="form-control text-center" placeholder="2020" aria-label="Input group example"
+                aria-describedby="btnGroupAddon2" disabled>
+        </div>
+        <div class="row align-items-center no-gutters">
+            <div class="col mr-2 ">
+                <br>
+                <h3><strong>Overview</strong></h3>
+                <div id="donutchart1"></div>
+                Income: <strong>$5000</strong>
+        <i class="material-icons navi__icon" style="color: black;"></i><br>
+        <a href="" style="text-decoration: none; color: #6c757d;">details</a>
+                <hr>
+                <div id="donutchart2"></div>
+                Expenses: <strong>$1000</strong><br>
+        <a href="" style="text-decoration: none; color: #6c757d;">details</a>
+                <hr>
+                <span style="color: cadetblue;">Net Income: <strong>$4000</strong></span>
+                <br>
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            </div>
+
+        </div>
+    </li>
+</ul>
+<br>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item text-center">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col mr-2 ">
+                                    <br>
+                                    <h3><strong>Highlights</strong></h3>
+                                    <br>
+                <div id="linechart_material"></div>
+                <br>
+                <div id="linechart_material1"></div>
+                <br>
+                <div id="linechart_material2"></div>
+                <hr>
+                            <span style="color: darkblue;">ROR: <strong>10%</strong></span><br>
+                            <span style="color: darkblue;">Expected Interest Earned: <strong>$3,875</strong></span>
+
+                                </div>
+                    
+                            </div>
+                        </li>
+                    </ul>
+                    <br>
+                    <div class="card shadow mb-4 justify-content-center">
+                        <div class="card-header py-3 d-flex justify-content-center">
+                            <h5>Expected Money After 1 Year</h5>
+                            <p style=" text-align: center; margin-top: 6px;"><span style="font-size: 20px;"><strong>$68000</strong></span>
+                            </p>
+                        </div>
+                        <div class="row align-items-center no-gutters">
+                            <div class="col mr-2" style="text-align: justify; font-family: Montserrat; padding: 20px;">
+                                <span>With annualy deposits value: <strong>$5000</strong></span><br>
+                            </div>
+                        </div>
+                    </div>
+    <ul class="list-group list-group-flush ">
+        <li class="list-group-item text-center">
+            <div class="row align-items-center no-gutters">
+                <div class="col mr-2 ">
+                    <br>
+                    <h3><strong>Savings Prospect</strong></h3>
+                    <div id="donutchart"></div>
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                </div>
+
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row align-items-center no-gutters">
+                <div class="col mr-2">
+                    <h6 class="mb-0"><strong>Everyday Savings</strong></h6><span class="text-xs">60%</span>
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-primary" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 60%;">
+                            <span class="sr-only">50%</span></div>
+                    </div>
+                </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row align-items-center no-gutters">
+                <div class="col mr-2">
+                    <h6 class="mb-0"><strong>Dream Savings</strong></h6><span class="text-xs">30%</span>
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-danger" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 30%;">
+                            <span class="sr-only">50%</span></div>
+                    </div>
+                </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row align-items-center no-gutters">
+                <div class="col mr-2">
+                    <h6 class="mb-0"><strong>Future Savings</strong></h6><span class="text-xs">10%</span>
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-warning" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 10%;">
+                            <span class="sr-only">50%</span></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </li>
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item text-center">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col mr-2 ">
+                            <br>
+                            <h3><strong>Last Month</strong></h3>
+<br>
+            <li class="list-group-item">
+                <div class="row align-items-center no-gutters">
+                    <div class="col mr-2">
+                        <h6 class="mb-0"><strong>Everyday Savings</strong></h6><span class="text-xs">+$3000<span>
+                    </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row align-items-center no-gutters">
+                    <div class="col mr-2">
+                        <h6 class="mb-0"><strong>Dream Savings</strong></h6><span class="text-xs">+$1500</span>
+                    </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row align-items-center no-gutters">
+                    <div class="col mr-2">
+                        <h6 class="mb-0"><strong>Future Savings</strong></h6><span class="text-xs">+$500</span>
+                    </div>
+                </div>
+                <br>
+            </li>
+                        </div>
+            
+                    </div>
+                </li>
+            </ul>
+            <br>
+    </ul>
+    <br>
+</div>
+
+</div>
+
+<div class="gfg">
+
+</div>
+<div class="wrap">
+
+</div>
+
+
+<style>
+    
+    .pb-3, .py-3 {
+    padding-bottom: 0.5rem!important;
+}
+    ul.list-group.list-group-flush {
+        font-family: Montserrat;
+    }
+
+    .container-fluid {
+        overflow: scroll;
+        height: 600px;
+        width: 100%;
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    div.gfg {
+        overflow: auto;
+    }
+
+    .wrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-family: Montserrat;
+    }
+
+
+
+    #loader img {
+        position: absolute;
+        width: 2%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #logo {
+        width: 100%;
+        top: 70%;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    html,
+    body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden
+    }
+
+    body {
+        background-color: crimson;
+    }
+
+    .card-header.py-3.d-flex.justify-content-center {
+        font-family: Montserrat;
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<script>
+    var loader = document.getElementById("loader");
+
+    window.addEventListener("load", function () {
+        setTimeout(function () {
+            loader.style.opacity = "0";
+            loader.style.visibility = "hidden";
+        }, 1500);
+    })
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Savings', 'Percent'],
+            ['Everyday', 60],
+            ['Dream', 30],
+            ['Future', 10],
+        ]);
+
+        var options = {
+            pieHole: 0.4,
+            backgroundColor: { fill: 'transparent' },
+            legend: { position: 'none' },
+            pieSliceText: "none"
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+    }
+
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart1);
+    function drawChart1() {
+        var data = google.visualization.arrayToDataTable([
+            ['Savings', 'Percent'],
+            ['Everyday', 80],
+            ['Dream', 10],
+            ['Future', 10],
+        ]);
+
+        var options = {
+            pieHole: 0.4,
+            backgroundColor: { fill: 'transparent' },
+            legend: { position: 'none' },
+            pieSliceText: "none",
+            colors: ['#446b6a', '#478d73', '#83D475', '#5ba95d', '#C5E8B7']
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart1'));
+        chart.draw(data, options);
+    }
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart2);
+    function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+            ['Savings', 'Percent'],
+                 ['Everyday', 60],
+            ['bull', 30],
+            ['new', 10],
+            ['phone', 10],
+            ['car', 10]
+        ]);
+
+        var options = {
+            pieHole: 0.4,
+            backgroundColor: { fill: 'transparent' },
+            legend: { position: 'none' },
+            pieSliceText: "none",
+            colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart2'));
+        chart.draw(data, options);
+    }
+
+    google.charts.load('current', { 'packages': ['line'] });
+    google.charts.setOnLoadCallback(drawChart5);
+
+    function drawChart5() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Day');
+        data.addColumn('number', 'Expense');
+
+        data.addRows([
+            [1, 37.8],
+            [2, 30.9],
+            [3, 25.4],
+            [4, 11.7],
+            [5, 11.9],
+            [6, 88],
+            [7, 76],
+            [8, 12.3],
+            [9, 16.9],
+            [10, 12.8],
+            [11, 53],
+            [12, 66],
+            [13, 48],
+            [14, 42]
+        ]);
+
+        var options = {
+            chart: {
+                title: 'Expense Trends',
+            },
+            backgroundColor: { fill: 'transparent' },
+            legend: { position: 'none' },
+              colors: ['#e0440e']
+        };
+
+        var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+        chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+    google.charts.load('current', { 'packages': ['line'] });
+    google.charts.setOnLoadCallback(drawChart6);
+
+    function drawChart6() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Month');
+        data.addColumn('number', 'Everyday');
+        data.addColumn('number', 'Dream');
+        data.addColumn('number', 'Future');
+
+        data.addRows([
+            [1, 0, 0, 0],
+            [2, 3000, 1500, 500]
+        ]);
+
+        var options = {
+            chart: {
+                title: 'Saving Trends',
+            },
+            backgroundColor: { fill: 'transparent' },
+            legend: { position: 'none' },
+        };
+
+        var chart = new google.charts.Line(document.getElementById('linechart_material1'));
+
+        chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+    google.charts.load('current', { 'packages': ['line'] });
+    google.charts.setOnLoadCallback(drawChart99);
+
+    function drawChart99() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Month');
+        data.addColumn('number', 'Everyday');
+        data.addColumn('number', 'Dream');
+
+        data.addRows([
+            [1, 0, 0],
+            [2, 5000, 5000],
+            [12, 60000, 68875]
+        ]);
+
+        var options = {
+            chart: {
+                title: 'Expected future return',
+            },
+            backgroundColor: { fill: 'transparent' },
+            legend: { position: 'none' },
+            colors: ['#5F9EA0', '#0000FF', '#83D475', '#5ba95d', '#C5E8B7']
+        };
+
+        var chart = new google.charts.Line(document.getElementById('linechart_material2'));
+
+        chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+</script>
+{% endblock %}
+
+{% block bottom %}
+<nav class="navi">
+    <a href="/home" style="text-decoration: none;" class="navi__link">
+        <i class="material-icons navi__icon ">home</i>
+        <span class="navi__text">Home</span>
+    </a>
+    <a href="/portofolio" style="text-decoration: none;" class="navi__link">
+        <i style="color:springgreen;" class="material-icons navi__icon">score</i>
+        <span style="color:springgreen;" class="navi__text">Porto</span>
+    </a>
+    <a href="/save" style="text-decoration: none;" class="navi__link">
+        <i class="material-icons navi__icon">account_balance_wallet</i>
+        <span class="navi__text">Save</span>
+    </a>
+
+    <a href="/literacy" style="text-decoration: none;" class="navi__link">
+        <i class="material-icons navi__icon">batch_prediction</i>
+        <span class="navi__text">Learn</span>
+
+    </a>
+
+    <link href="http://siswa.edulab.co.id/assets-front/dash/lib/@fortawesome/fontawesome-free/css/all.min.css"
+        rel="stylesheet">
+    <link href="http://siswa.edulab.co.id/assets-front/dash/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</nav>
+
+
+<style>
+    .material-icons {
+        text-decoration: none;
+        color: white;
+        font-size: x-large;
+    }
+
+    .navi {
+        bottom: 0;
+        width: 100%;
+        height: 55px;
+        display: flex;
+        overflow-x: auto;
+        text-decoration: none;
+    }
+
+    .navi__link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        min-width: 50px;
+        overflow: hidden;
+        white-space: nowrap;
+        font-family: sans-serif;
+        font-family: Montserrat;
+        font-size: 13px;
+        color: white;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+        transition: background-color 0.1s ease-in-out;
+    }
+
+    .navi__link: hover {
+        background-color: #DEFAB2;
+    }
+
+    .navi__link--active {
+        color: #009578;
+    }
+</style>
+{% endblock %}

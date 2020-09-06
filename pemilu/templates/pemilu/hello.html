@@ -1,0 +1,406 @@
+{% extends "pemilu/layout.html" %}
+
+{% block brand %}static/imgg/123.png{% endblock %}
+
+{% block title %}
+    Halaman Muka
+{% endblock %}
+
+    
+{% block main %}
+{% load static %}
+<div class="wrap">
+<div class="wrapper">
+    <div class="quiz">
+        <div class="quiz_header">
+            <div class="quiz_user">
+                <h4><span class="name"></span></h4>
+            </div>
+        </div>
+        <div class="quiz_body">
+            <div id="questions">
+
+
+                <!-- <ul class="option_group ">
+              <li class="option">option 1</li>
+              <li class="option">option 2</li>
+              <li class="option">option 3</li>
+              <li class="option">option 4</li>
+            </ul> -->
+            </div>
+
+            <button class="btn-next" onclick="next()">Next Question</button>
+        </div>
+    </div>
+</div>
+</div>
+<div id="loader">
+    <img src="static/imgg/logo1.png" alt="">
+</div>
+
+<style>
+
+    .pilihan {
+        text-align: center;
+        font-family: montserrat;
+                background-color: rgba(255,255,255,50%);
+        position: absolute;
+        margin: 0;
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .pilihan1 {
+        text-align: center;
+        font-family: montserrat;
+                background-color: rgba(255,255,255,50%);
+        position: absolute;
+        margin: 0;
+        position: absolute;
+        bottom: 12%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .pilihan btn {
+
+    }
+    #loader {
+        height: 9999px;
+        width: 9999px;
+        background-color: white;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 9999;
+        transition: all .5s;
+    }
+    #loader img{
+        position: absolute;
+        width: 2%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    #logo {
+         width: 100%;
+        top: 70%;
+    }
+    html, body {margin: 0; height: 100%; overflow: hidden}
+    body {
+        background-color: #f3745e;
+    }
+
+ul.option_group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-inline-start: 0px;
+}
+
+.wrap {
+     padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome_text {
+  width: 400px;
+}
+
+.welcome_form {
+}
+
+.welcome_form input,
+.welcome_form button {
+  display: block;
+  width: 100%;
+}
+
+.welcome_form input {
+  background-color: transparent;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 15px;
+}
+
+.welcome_form input:focus {
+  outline: none;
+}
+
+.welcome_form button {
+  padding: 20px 0;
+  border: none;
+  border-radius: 100px;
+  background-color: #fff;
+  color: #341f97;
+  font-size: 22px;
+  transition: 0.4s all;
+}
+
+.welcome_form button:hover {
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.quiz {
+  display: grid;
+  grid-template-rows: 60px auto;
+  width: 800px;
+  height: 500px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+
+.quiz_header {
+  display: flex;
+  justify-content: space-between;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+.quiz_body {
+  padding: 30px 30px;
+}
+.quiz_user {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 30px;
+}
+
+.quiz_timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100px;
+  background-color: #f3745e;
+  color: #fff;
+}
+.quiz_body {
+  background-color: #ecf0f1;
+}
+
+.option_group {
+  list-style-type: none;
+  margin: 30px 0;
+  
+}
+
+.option {
+text-align: center;
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border-radius: 100px;
+  border: 2px solid transparent;
+  transition: 0.4s all;
+}
+
+.option:hover {
+  cursor: pointer;
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  border: 2px solid #f3745e;
+  color: #f3745e;
+}
+.option.active {
+  background-color: #f3745e;
+  color: #fff;
+}
+h2 {
+    text-align: center;
+}
+.btn-next {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  border: none;
+  padding: 15px 35px;
+  background-color: #f3745e;
+  color: #fff;
+  border-radius: 27px;
+  transition: 0.4s all;
+}
+
+.btn-next:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: #f3745e;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.award_icon {
+  display: block;
+  font-size: 300px;
+  color: #fff;
+}
+
+.username,
+.userpoints,
+.usertime {
+  color: #fff;
+  text-align: center;
+  margin-top: 15px;
+}
+main.container.p-5 {
+    font-family: Montserrat;
+    color: #6c757d;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<script>
+    var loader = document.getElementById("loader");
+
+    window.addEventListener("load",function(){
+        setTimeout(function () {
+            loader.style.opacity = "0";
+            loader.style.visibility = "hidden";
+        }, 1500);
+    })
+
+
+    let questions = [
+        {
+            id: 1,
+            question: "Do you save any money?",
+            answer: "Yes",
+            options: [
+                "Yes",
+                "No",
+                "Sometimes",
+                "No"
+            ]
+        },
+        {
+            id: 2,
+            question: "Do you care about money?",
+            answer: "No",
+            options: [
+              "Yes",
+              "No",
+              "Sometimes",
+              "No"
+            ]
+        },
+        {
+            id: 3,
+            question: "Enjoy Life Now or Save for Later?",
+            answer: "Save for later",
+            options: [
+                "Enjoy life now",
+                "Save for later",
+                "IDK",
+                "None of these"
+            ]
+        }
+    ];
+
+    let question_count = 0;
+    let points = 0;
+
+    window.onload = function () {
+        show(question_count);
+
+    };
+
+    function next() {
+
+
+        // if the question is last then redirect to final page
+        if (question_count == questions.length - 1) {
+            sessionStorage.setItem("time", time);
+            clearInterval(mytime);
+            location.href = "/gaji";
+        }
+        console.log(question_count);
+
+        let user_answer = document.querySelector("li.option.active").innerHTML;
+        // check if the answer is right or wrong
+        if (user_answer == questions[question_count].answer) {
+            points += 10;
+            sessionStorage.setItem("points", points);
+        }
+        console.log(points);
+
+        question_count++;
+        show(question_count);
+    }
+
+    function show(count) {
+        let question = document.getElementById("questions");
+        let [first, second, third, fourth] = questions[count].options;
+
+        question.innerHTML = `
+  <h2>${questions[count].question}</h2>
+   <ul class="option_group">
+  <li class="option">${first}</li>
+  <li class="option">${second}</li>
+  <li class="option">${third}</li>
+  <li class="option">${fourth}</li>
+</ul> 
+  `;
+        toggleActive();
+    }
+
+    function toggleActive() {
+        let option = document.querySelectorAll("li.option");
+        for (let i = 0; i < option.length; i++) {
+            option[i].onclick = function () {
+                for (let i = 0; i < option.length; i++) {
+                    if (option[i].classList.contains("active")) {
+                        option[i].classList.remove("active");
+                    }
+                }
+                option[i].classList.add("active");
+            };
+        }
+    }
+    let dt = new Date(new Date().setTime(0));
+        let ctime = dt.getTime();
+        let seconds = Math.floor((ctime % (1000 * 60)) / 1000);
+        let minutes = Math.floor((ctime % (1000 * 60 * 60)) / (1000 * 60));
+        console.log(seconds, minutes);
+        let time = 0;
+        let mytime = setInterval(function () {
+            time++;
+
+            if (seconds < 59) {
+                seconds++;
+            } else {
+                seconds = 0;
+                minutes++;
+            }
+            let formatted_sec = seconds < 10 ? `0${seconds}` : `${seconds}`;
+            let formatted_min = minutes < 10 ? `0${minutes}` : `${minutes}`
+            document.querySelector("span.time").innerHTML = `${formatted_min} : ${formatted_sec}`;
+        }, 1000);
+        let user_name = sessionStorage.getItem("name");
+            let user_points = sessionStorage.getItem("points");
+            let user_time = sessionStorage.getItem("time");
+            document.querySelector("span.name").innerHTML = user_name;
+            document.querySelector("span.points").innerHTML = user_points;
+            document.querySelector("span.time_taken").innerHTML = user_time;
+
+</script>
+{% endblock %}
