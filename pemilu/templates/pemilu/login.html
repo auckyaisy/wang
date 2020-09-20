@@ -6,7 +6,7 @@
 <head>
 	<title>SINAU: Login</title>
 	<link rel="stylesheet" type="text/css" href="{% static "css/style.css"%}">
-	<link rel="icon" href="{% static "images/sinau.ico" %}" type="image/icon" sizes="16x16">
+	<link rel="icon" href="{% static "images/log2.ico" %}" type="image/icon" sizes="16x16">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 
@@ -18,7 +18,7 @@
 		<div class="login-content">
 			<form action="/login" method="post">
 				{% csrf_token %}
-				<img src="{% static "imgg/logo3.png"%}">
+				<img src="{% static "imgg/log2.png"%}" width="50%" height="50%">
 				<h2 class="title">
 					{% if message %}
 					<span style="color:#f3745e;">{{ message }}</span>
@@ -52,7 +52,7 @@
 		</div>
 	</div>
 	<div id="loader">
-		<img src="{% static "imgg/logo1.png"%}" alt="">
+		<img src="{% static "imgg/log2.png"%}" alt="">
 	</div>
 	<script type="text/javascript" src="{% static "js/main.js"%}"></script>
 	<script>

@@ -1,6 +1,6 @@
 {% extends "pemilu/layout.html" %}
 
-{% block brand %}static/imgg/123.png{% endblock %}
+{% block brand %}static/imgg/log1.png{% endblock %}
 
 {% block title %}
     Halaman Muka
@@ -10,14 +10,13 @@
 {% block main %}
 {% load static %}
 <div class="wrap">
-    <h1>Hello, Aucky</h1>
-    <h2>welcome to orava</h2>
-    <p>Let's take some little quiz to know what you really are</p>
+    <h1>Hello, <strong>Aucky</strong></h1>
+    <p>Let's take some little quiz to know what recommended prospect and interest for you.</p>
             <button class="btn-next" onclick="window.location.href='/hello';">Let's Go</button>
 
 </div>
 <div id="loader">
-    <img src="static/imgg/logo1.png" alt="">
+    <img src="static/imgg/log2.png" alt="">
 </div>
 
 <style>
@@ -81,7 +80,7 @@
     }
     html, body {margin: 0; height: 100%; overflow: hidden}
     body {
-        background-color: #f3745e;
+        background-color: salmon;
     }
 
 </style>

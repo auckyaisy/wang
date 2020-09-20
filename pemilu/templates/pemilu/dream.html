@@ -1,6 +1,6 @@
 {% extends "pemilu/layout.html" %}
 
-{% block brand %}static/imgg/123.png{% endblock %}
+{% block brand %}static/imgg/log1.png{% endblock %}
 
 
 {% block title %}
@@ -10,13 +10,14 @@ Halaman Muka
 
 {% block main %}
 {% load static %}
+<br><br><br>
 <div class="container-fluid">
     <div class="card shadow mb-4 justify-content-center">
         <div class="card-header py-3 d-flex justify-content-center" style="margin-left: 18px;">
             <img src="{% static "imgg/dreams.png" %}" width="100px" height="100px" alt="">
             <div class="col">
                 <div style="margin-top: 16px; margin-left: 5px;">
-                    <h3>Dream Saver</h3>
+                    <h3>Reksa<br>dana</h3>
                 </div>
             </div>
         </div>
@@ -24,47 +25,18 @@ Halaman Muka
         <ul class="list-group list-group-flush ">
             <li class="list-group-item text-center">
                 <div class="col">
-                    <h3>30% of Income</h3>
+                    <h3>30% of Deposit</h3>
                     <p style="text-align: center">Allocated from the prospect</p>
                 </div>
                 <hr>
                 <div class="row align-items-center no-gutters" style="text-align: center; justify-content: center;">
                     <p style="text-align: center;">
-                        Last Savings: <br>
-                        <strong>+$1500</strong>
+                        Last Invest: <br>
+                        <strong>+$1500 <br>(DanaInvestama LLC.)</strong>
                     </p>
                 </div>
-            </li>
-                    <li class="list-group-item">
-            <div class="row align-items-center no-gutters">
-                <div class="col mr-2">
-                    <h6 class="mb-0"><strong>New Macbook</strong></h6><span class="text-xs">$199 | <strong>Target:
-                            $2000</strong> </span>
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-primary" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"
-                            style="width: 10%;">
-                            <span class="sr-only">50%</span></div>
-                    </div>
-                </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row align-items-center no-gutters">
-                <div class="col mr-2">
-                    <h6 class="mb-0"><strong>New Phone</strong></h6><span class="text-xs">$500 | <strong>Target:
-                            $1000</strong> </span>
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-danger" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-                            style="width: 50%;">
-                            <span class="sr-only">50%</span></div>
-                    </div>
-                </div>
-            </div>
-        </li>
             <li class="list-group-item text-center">
-                <button class="btn-next" onclick="window.location.href='/';"><strong>Add Dream</strong></button>
-            </li>
-            <li class="list-group-item text-center">
-                <button class="btn-next" onclick="window.location.href='/';"><strong>Deposit</strong></button>
+                <button class="btn-next" onclick="window.location.href='/';"><strong>Invest</strong></button>
             </li>
         </ul>
     </div>
@@ -221,7 +193,7 @@ Halaman Muka
     </a>
     <a href="/save" style="text-decoration: none;" class="navi__link">
         <i style="color:springgreen;" class="material-icons navi__icon">account_balance_wallet</i>
-        <span style="color:springgreen;" class="navi__text">Save</span>
+        <span style="color:springgreen;" class="navi__text">Invest</span>
     </a>
 
     <a href="" style="text-decoration: none;" class="navi__link">

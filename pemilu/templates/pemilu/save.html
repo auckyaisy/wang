@@ -1,6 +1,6 @@
 {% extends "pemilu/layout.html" %}
 
-{% block brand %}static/imgg/123.png{% endblock %}
+{% block brand %}static/imgg/log1.png{% endblock %}
 
 
 {% block title %}
@@ -11,13 +11,14 @@ Halaman Muka
 {% block main %}
 {% load static %}
 <div class="container-fluid">
+    <br>
     <a href="/every" class="list-group-item-action bg-white">
     <div class="card shadow mb-4 justify-content-center list-group-item-action">
         <div class="card-header py-3 d-flex justify-content-center">
             <img src="{% static "imgg/vault.png" %}" width="100px" height="100px" alt="">
             <div class="col">
-                <h3>Everyday Savings</h3>
-                <p>Allocate your money for an annual savings.</p>
+                <h3>Stocks</h3>
+                <p>Allocate your money for a stocks.</p>
             </div>
         </div>
     </div></a>
@@ -26,8 +27,8 @@ Halaman Muka
     <div class="card-header py-3 d-flex justify-content-center">
             <img src="{% static "imgg/dreams.png" %}" width="100px" height="100px" alt="">
             <div class="col">
-                <h3>Dream Saver</h3>
-                <p>A Savings for something you really want.</p>
+                <h3>Reksadana</h3>
+                <p>Invest your money on a Reksadana.</p>
             </div>
     </div>
 </div></a>
@@ -36,8 +37,8 @@ Halaman Muka
     <div class="card-header py-3 d-flex justify-content-center">
             <img src="{% static "imgg/magic.png" %}" width="100px" height="100px" alt="">
             <div class="col">
-                <h3>Money for Future</h3>
-                <p>A Savings for future, and incase that you need emergency funds.</p>
+                <h3>Money Exchange</h3>
+                <p>Invest your money on a Money Exchange.</p>
             </div>
     </div>
 </div></a>
@@ -151,7 +152,7 @@ Halaman Muka
     </a>
     <a href="" class="navi__link">
         <i style="color:springgreen;" class="material-icons navi__icon">account_balance_wallet</i>
-        <span style="color:springgreen;" class="navi__text">Save</span>
+        <span style="color:springgreen;" class="navi__text">Invest</span>
     </a>
 
     <a href="/literacy" class="navi__link">

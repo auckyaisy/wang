@@ -1,6 +1,6 @@
 {% extends "pemilu/layout.html" %}
 
-{% block brand %}static/imgg/123.png{% endblock %}
+{% block brand %}static/imgg/log1.png{% endblock %}
 
 
 {% block title %}
@@ -10,40 +10,48 @@ Halaman Muka
 
 {% block main %}
 {% load static %}
-<br><br>
 <div class="container-fluid">
-    <div class="card shadow mb-4 justify-content-center">
-        <div class="card-header py-3 d-flex justify-content-center" style="margin-left: 18px;">
-            <img src="{% static "imgg/vault.png" %}" width="100px" height="100px" alt="">
-            <div class="col">
-                <div style="margin-top: 16px; margin-left: 5px;">
-                    <h3>Everyday Savings</h3>
+    <br>
+    <a href="/everyday" class="list-group-item-action bg-white">
+        <div class="card shadow mb-4 justify-content-center list-group-item-action">
+            <div class="card-header py-3 d-flex justify-content-center">
+                <div class="col">
+                    <h3>Tech</h3>
+                    <p>The Fund aims to maximise the return on your investment through a combination of capital growth and income on the Fund’s
+                    assets. The Fund invests at least 70% of its total assets in the equity securities (e.g. shares) of companies globally
+                    whose predominant economic activity comprises the research, development, production and/or distribution of new and
+                    emerging technology..</p>
                 </div>
             </div>
         </div>
-        
-        <ul class="list-group list-group-flush ">
-                    <li class="list-group-item text-center">
-                        <div class="col">
-                            <br>
-                            <h3>60% of Income</h3>
-                            <p style="text-align: center">Allocated from the prospect</p>
-                        </div>
-                        <hr>
-                        <div class="row align-items-center no-gutters" style="text-align: center; justify-content: center;">
-                            <p style="text-align: center;">
-                                Last Savings: <br>
-                                <strong>+$3000</strong>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <button class="btn-next" onclick="window.location.href='#';"><strong>Add another wallet</strong></button>
-                    </li>
-                    <li class="list-group-item text-center">
-                        <button class="btn-next" onclick="window.location.href='/deposit';"><strong>Deposit</strong></button>
-                    </li>
-</ul>
+    </a>
+    <a href="/everyday" class="list-group-item-action bg-white">
+        <div class="card shadow mb-4 justify-content-center">
+            <div class="card-header py-3 d-flex justify-content-center">
+                <div class="col">
+                    <h3>Global Clean Energy UCITS ETF</h3>
+                    <div class="item__copy">
+                        <ol>
+                            <li>Exposure to broadly diversified clean energy companies</li>
+                            <li>Direct investment into 30 global companies</li>
+                            <li>Clean Energy sector exposure</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="/everyday" class="list-group-item-action bg-white">
+        <div class="card shadow mb-4 justify-content-center">
+            <div class="card-header py-3 d-flex justify-content-center">
+                <div class="col">
+                    <h3>Electric Vehicles and Driving Technology UCITS ETF</h3>
+                    <p>The iShares Electric Vehicles and Driving Technology UCITS ETF seeks to track the investment results of an index
+                    composed of developed and emerging market companies that focus on electric vehicles and driving technologies.</p>
+                </div>
+            </div>
+        </div>
+    </a>
 </div>
 
 </div>
@@ -57,13 +65,14 @@ Halaman Muka
 
 
 <style>
-        h3 {
-    color: indigo;
-    font-weight: bold;
-}
     .pb-3,
     .py-3 {
-        padding-bottom: 0.5rem !important;
+        padding-bottom: 0rem !important;
+    }
+
+    h3 {
+        color: indigo;
+        font-weight: bold;
     }
 
     ul.list-group.list-group-flush {
@@ -122,31 +131,11 @@ Halaman Muka
     }
 
     body {
-        background-color: indigo;
+        background-color: darkslateblue;
     }
 
     .card-header.py-3.d-flex.justify-content-center {
         font-family: Montserrat;
-    }
-      .btn-next {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        border: none;
-        padding: 15px 35px;
-        background-color: #fff;
-        color: #6c757d;
-        border-radius: 27px;
-        transition: 0.4s all;
-    }
-
-    .btn-next:hover {
-        cursor: pointer;
-        background-color: #fff;
-        color: #f3745e;
-        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
     }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
@@ -159,47 +148,27 @@ Halaman Muka
             loader.style.visibility = "hidden";
         }, 1500);
     })
-    google.charts.load("current", { packages: ["corechart"] });
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Savings', 'Percent'],
-            ['Everyday', 60],
-            ['Dream', 30],
-            ['Future', 10],
-        ]);
 
-        var options = {
-            pieHole: 0.4,
-            backgroundColor: { fill: 'transparent' },
-            legend: { position: 'none' },
-            pieSliceText: "none"
-        };
 
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
-    }
-
-   
 </script>
 {% endblock %}
 
 {% block bottom %}
 <nav class="navi">
-    <a href="/home" style="text-decoration: none;" class="navi__link">
+    <a href="/home" class="navi__link">
         <i class="material-icons navi__icon ">home</i>
         <span class="navi__text">Home</span>
     </a>
-    <a href="/portofolio" style="text-decoration: none;" class="navi__link">
-        <i  class="material-icons navi__icon">score</i>
-        <span  class="navi__text">Porto</span>
+    <a href="/portofolio" class="navi__link">
+        <i class="material-icons navi__icon">score</i>
+        <span class="navi__text">Porto</span>
     </a>
-    <a href="/save" style="text-decoration: none;" class="navi__link">
+    <a href="" class="navi__link">
         <i style="color:springgreen;" class="material-icons navi__icon">account_balance_wallet</i>
-        <span  style="color:springgreen;" class="navi__text">Save</span>
+        <span style="color:springgreen;" class="navi__text">Invest</span>
     </a>
 
-    <a href="" style="text-decoration: none;" class="navi__link">
+    <a href="/literacy" class="navi__link">
         <i class="material-icons navi__icon">batch_prediction</i>
         <span class="navi__text">Learn</span>
 
@@ -214,7 +183,6 @@ Halaman Muka
 
 <style>
     .material-icons {
-        text-decoration: none;
         color: white;
         font-size: x-large;
     }
@@ -225,7 +193,6 @@ Halaman Muka
         height: 55px;
         display: flex;
         overflow-x: auto;
-        text-decoration: none;
     }
 
     .navi__link {

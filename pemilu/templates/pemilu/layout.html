@@ -12,6 +12,8 @@
     <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
 
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <link href="{% static "style.css" %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="static/loading.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
@@ -25,7 +27,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <title>orava: {% block title %}{% endblock %}</title>
+    <title>WANG: {% block title %}{% endblock %}</title>
 
 </head>
 
@@ -33,7 +35,7 @@
     
 <header>
     <nav class="navbar fixed-top ">
-        <a class="navbar-brand" href="/"><img style="margin-bottom: 5px" src="{% block brand %}{% endblock %}"></a>
+        <a class="navbar-brand" href="/"><img style=" width: 100px; margin-top: 5px;" src="{% block brand %}{% endblock %}"></a>
         <div class="right">
         <div class="dropdown" id="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"

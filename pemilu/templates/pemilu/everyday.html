@@ -1,5 +1,5 @@
 {% extends "pemilu/layout.html" %}
-{% block brand %}static/imgg/123.png{% endblock %}
+{% block brand %}static/imgg/log1.png{% endblock %}
 
 {% block title %}
 Halaman Muka
@@ -10,16 +10,336 @@ Halaman Muka
 {% load static %}
 <div class="wrap">
     <br>
-    <h1 style="font-size: 30px;"><strong>In Month on Average</strong></h1>
-    <input type="text" class="form-control" placeholder="How much money you're earn?">
-    <input type="text" style="margin-top: 10px;" class="form-control" placeholder="How much money you're spend?">
-    <p style="text-align: center; margin-top: 15px;">
-        We need this data, so that we can give a recommended prospect for your saving.
-    </p>
-    <button class="btn-next" onclick="window.location.href='/prospect';"><strong>See The Result</strong></button>
+    <h1 style="font-size: 30px;"><strong>How much do you want to invest?</strong></h1>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+                datasets: [{
+                    label: 'percentage',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <div id="slider">
+        <div id="custom-handle" class="ui-slider-handle"></div>
+    </div>
+    <div class="pricing-slider">
+        <label class="form-slider">
+            <input type="range" value="1" data-price-input='{
+                "0": "1,000",
+                "1": "1,250",
+                "2": "1,500",
+                "3": "2,000",
+                "4": "2,500",
+                "5": "3,500",
+                "6": "6,000",
+                "7": "15,000",
+                "8": "50,000",
+                "9": "50,000+"                        
+              }' />
+        </label>
+        <div class="pricing-slider-value"></div>
+    </div>
+    <button class="btn-next" onclick="window.location.href='/home';"><strong>Invest</strong></button>
+    <script>
+        (function () {
+            const pricingSliders = document.querySelectorAll(".pricing-slider");
+
+            if (pricingSliders.length > 0) {
+                for (let i = 0; i < pricingSliders.length; i++) {
+                    const pricingSlider = pricingSliders[i];
+
+                    // Build the input object
+                    const pricingInput = {
+                        el: pricingSlider.querySelector("input")
+                    };
+                    pricingInput.data = JSON.parse(
+                        pricingInput.el.getAttribute("data-price-input")
+                    );
+                    pricingInput.currentValEl = pricingSlider.querySelector(
+                        ".pricing-slider-value"
+                    );
+                    pricingInput.thumbSize = parseInt(
+                        window
+                            .getComputedStyle(pricingInput.currentValEl)
+                            .getPropertyValue("--thumb-size"),
+                        10
+                    );
+
+                    // Build the output array
+                    const pricingOutputEls = pricingSlider.parentNode.querySelectorAll(
+                        ".pricing-item-price"
+                    );
+                    const pricingOutput = [];
+                    for (let i = 0; i < pricingOutputEls.length; i++) {
+                        const pricingOutputEl = pricingOutputEls[i];
+                        const pricingOutputObj = {};
+                        pricingOutputObj.currency = pricingOutputEl.querySelector(
+                            ".pricing-item-price-currency"
+                        );
+                        pricingOutputObj.amount = pricingOutputEl.querySelector(
+                            ".pricing-item-price-amount"
+                        );
+                        pricingOutputObj.after = pricingOutputEl.querySelector(
+                            ".pricing-item-price-after"
+                        );
+                        pricingOutputObj.data = JSON.parse(
+                            pricingOutputEl.getAttribute("data-price-output")
+                        );
+                        pricingOutput.push(pricingOutputObj);
+                    }
+
+                    pricingInput.el.setAttribute("min", 0);
+                    pricingInput.el.setAttribute(
+                        "max",
+                        Object.keys(pricingInput.data).length - 1
+                    );
+                    !pricingInput.el.getAttribute("value") &&
+                        pricingInput.el.setAttribute("value", 0);
+
+                    handlePricingSlider(pricingInput, pricingOutput);
+                    window.addEventListener("input", function () {
+                        handlePricingSlider(pricingInput, pricingOutput);
+                    });
+                }
+            }
+
+            function handlePricingSlider(input, output) {
+                // output the current slider value
+                if (input.currentValEl)
+                    input.currentValEl.innerHTML = input.data[input.el.value];
+                // update prices
+                for (let i = 0; i < output.length; i++) {
+                    const outputObj = output[i];
+                    if (outputObj.currency)
+                        outputObj.currency.innerHTML = outputObj.data[input.el.value][0];
+                    if (outputObj.amount)
+                        outputObj.amount.innerHTML = outputObj.data[input.el.value][1];
+                    if (outputObj.after)
+                        outputObj.after.innerHTML = outputObj.data[input.el.value][2];
+                }
+                handleSliderValuePosition(input);
+            }
+
+            function handleSliderValuePosition(input) {
+                const multiplier = input.el.value / input.el.max;
+                const thumbOffset = input.thumbSize * multiplier;
+                const priceInputOffset =
+                    (input.thumbSize - input.currentValEl.clientWidth) / 2;
+                input.currentValEl.style.left =
+                    input.el.clientWidth * multiplier - thumbOffset + priceInputOffset + "px";
+            }
+        })();
+
+    </script>
 </div>
 
 <style>
+    input[type="range"] {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background: #eef1f6;
+        border-radius: 3px;
+        height: 6px;
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #5f48ff;
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2212%22%20height%3D%228%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M8%20.5v7L12%204zM0%204l4%203.5v-7z%22%20fill%3D%22%23FFFFFF%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fsvg%3E");
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 36px;
+        width: 36px;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        background-color: #5f48ff;
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2212%22%20height%3D%228%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M8%20.5v7L12%204zM0%204l4%203.5v-7z%22%20fill%3D%22%23FFFFFF%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fsvg%3E");
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 0;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 36px;
+        width: 36px;
+    }
+
+    input[type="range"]::-ms-thumb {
+        background-color: #5f48ff;
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2212%22%20height%3D%228%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M8%20.5v7L12%204zM0%204l4%203.5v-7z%22%20fill%3D%22%23FFFFFF%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fsvg%3E");
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 36px;
+        width: 36px;
+    }
+
+    input[type="range"]::-moz-focus-outer {
+        border: 0;
+    }
+
+    .pricing-slider {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .form-slider span {
+        display: block;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    .pricing-slider {
+        margin-bottom: 25px;
+        margin-top: 25px;
+    }
+
+    .pricing-slider {
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+    .pricing-slider input {
+        width: 100%;
+    }
+
+    .pricing-slider .pricing-slider-value {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500;
+        color: #909cb5;
+        --thumb-size: 36px;
+    }
+
+    .pricing-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-right: -12px;
+        margin-left: -12px;
+        margin-top: -12px;
+    }
+
+    .pricing-item {
+        flex-basis: 280px;
+        max-width: 280px;
+        box-sizing: content-box;
+        padding: 12px;
+    }
+
+    .pricing-item-inner {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        height: 100%;
+        padding: 24px;
+        box-shadow: 0 8px 16px rgba(46, 52, 88, 0.16);
+    }
+
+    .pricing-item-title {
+        font-weight: 500;
+    }
+
+    .pricing-item-price {
+        display: inline-flex;
+        align-items: baseline;
+        font-size: 20px;
+    }
+
+    .pricing-item-price-amount {
+        font-size: 36px;
+        line-height: 48px;
+        font-weight: 500;
+        color: #191e2a;
+    }
+
+    .pricing-item-features-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .pricing-item-features-list li {
+        margin-bottom: 0;
+        padding: 14px 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .pricing-item-features-list li::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: block;
+        height: 1px;
+        background: #e9ecf8;
+    }
+
+    .pricing-item-features-list li::after {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%2011h14v2H5z%22%20fill%3D%22%239298B8%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fsvg%3E");
+        background-repeat: no-repeat;
+        -webkit-box-ordinal-group: 0;
+        order: -1;
+    }
+
+    .pricing-item-features-list li.is-checked::after {
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill-rule%3D%22nonzero%22%20fill%3D%22none%22%3E%3Ccircle%20fill%3D%22%2300C2A9%22%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2212%22%2F%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M10.5%2012.267l-2.5-1.6-1%201.066L10.5%2016%2017%209.067%2016%208z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    }
+
     .btn-next {
         width: 100%;
         display: flex;
@@ -116,7 +436,7 @@ Halaman Muka
     }
 
     body {
-        background-color: salmon;
+        background-color: darkblue;
     }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>

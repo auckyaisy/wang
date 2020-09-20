@@ -1,5 +1,5 @@
 {% extends "pemilu/layout.html" %}
-{% block brand %}static/imgg/234.png{% endblock %}
+{% block brand %}static/imgg/logs.png{% endblock %}
 
 {% block title %}
 Halaman Muka
@@ -14,7 +14,7 @@ Halaman Muka
     <div id="donutchart"></div>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <p>
-        You're a quite good savers, we think of it as <strong>Orava</strong>, they save many foods so they didn't starve through the winter. As stated above that's a recommended savings prospect for you, but if you dont agree with that, you can change your prospect.
+        As we recommend, You are a moderate investor, we assign this as <strong>Orava</strong>, this is the good prospect for your investment, with <strong>60%</strong> on <strong>Stocks</strong>, <strong>30%</strong> on <strong>Reksadana</strong>, and <strong>10%</strong> on <strong>Money Exchange</strong>.
     </p>
     <a href="" style="margin-top: 20px; color: #6c757d;">Change Prospect</a>
     <br>
@@ -104,10 +104,10 @@ Halaman Muka
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Savings', 'Percent'],
-                ['Everyday', 60],
-                ['Dream', 30],
-                ['Future', 10],
+                ['Invest', 'Percent'],
+                ['Stock', 60],
+                ['Reksadana', 30],
+                ['Money Exchange', 10],
             ]);
 
             var options = {
